@@ -42,6 +42,18 @@
             <version>${springdoc-openapi.version}</version>
         </dependency>
 
+        <!--Messaging-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>${spring-kafka.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
+
         <!--Testing-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
