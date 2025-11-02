@@ -6,25 +6,16 @@ import dev.reno.type.StatusType;
 
 import java.util.UUID;
 
-public class JobMapper {
+public final class JobMapper {
 
-    public JobMapper() {
+    private JobMapper() {
         throw new IllegalArgumentException("This is a utility class and cannot be instantiated");
     }
 
-    public static ResponseJobDto toQueuedResponseJobDto(RequestJobDto job) {
+    public static ResponseJobDto toResponse(RequestJobDto job, StatusType status) {
         return new ResponseJobDto(
                 UUID.randomUUID(),
-                StatusType.QUEUED,
-                job.algorithm(),
-                job.payload()
-        );
-    }
-
-    public static ResponseJobDto toFailedResponseJobDto(RequestJobDto job) {
-        return new ResponseJobDto(
-                UUID.randomUUID(),
-                StatusType.FAILED,
+                status,
                 job.algorithm(),
                 job.payload()
         );

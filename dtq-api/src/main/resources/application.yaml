@@ -1,2 +1,10 @@
 server:
   port: 8090
+
+kafka:
+  bootstrapServers: "127.0.0.1:9092"
+
+topic-job:
+  name: "job"
+  partitionCount: 10
+  replicaCount: 1

@@ -3,6 +3,7 @@ package dev.reno.service;
 import dev.reno.mapper.JobMapper;
 import dev.reno.model.RequestJobDto;
 import dev.reno.model.ResponseJobDto;
+import dev.reno.type.StatusType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -18,14 +19,14 @@ public class JobService {
     }
 
     public ResponseEntity<ResponseJobDto> submitJob(RequestJobDto requestJobDto) {
-        ResponseJobDto queuedResponseJobDto = JobMapper.toQueuedResponseJobDto(requestJobDto);
+        ResponseJobDto queuedResponseJobDto = JobMapper.toResponse(requestJobDto, StatusType.QUEUED);
 
         LOG.info("Job created: {}", queuedResponseJobDto);
         try {
             messageService.sendMessage(queuedResponseJobDto);
             LOG.info("Job submitted: {}", queuedResponseJobDto);
         } catch (RuntimeException e) {
-            ResponseJobDto failedResponseJobDto = JobMapper.toFailedResponseJobDto(requestJobDto);
+            ResponseJobDto failedResponseJobDto = JobMapper.toResponse(requestJobDto, StatusType.FAILED);
             LOG.error("Failed to send job message", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(failedResponseJobDto);
         }
