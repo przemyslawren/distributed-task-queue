@@ -1,8 +1,8 @@
-package dev.reno.controller;
+package dev.reno.dtq.api.controller;
 
-import dev.reno.model.RequestJobDto;
-import dev.reno.model.ResponseJobDto;
-import dev.reno.service.JobService;
+import dev.reno.dtq.api.model.RequestJobDto;
+import dev.reno.dtq.api.model.ResponseJobDto;
+import dev.reno.dtq.api.service.JobService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

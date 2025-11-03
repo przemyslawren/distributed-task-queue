@@ -4,17 +4,28 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dev.reno</groupId>
-    <artifactId>distributed-task-queue</artifactId>
+    <groupId>dev.reno.dtq.api.dtq</groupId>
+    <artifactId>dtq-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>DistributedTaskQueue</name>
 
     <modules>
-        <module>dtq-commons</module>
+        <module>dtq-common</module>
         <module>dtq-api</module>
-        <module>dtq-worker</module>
+        <module>dtq-process</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

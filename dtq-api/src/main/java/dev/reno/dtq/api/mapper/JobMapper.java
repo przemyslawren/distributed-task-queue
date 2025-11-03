@@ -1,8 +1,8 @@
-package dev.reno.mapper;
+package dev.reno.dtq.api.mapper;
 
-import dev.reno.model.RequestJobDto;
-import dev.reno.model.ResponseJobDto;
-import dev.reno.type.StatusType;
+import dev.reno.dtq.api.model.RequestJobDto;
+import dev.reno.dtq.api.model.ResponseJobDto;
+import dev.reno.dtq.api.type.StatusType;
 
 import java.util.UUID;
 

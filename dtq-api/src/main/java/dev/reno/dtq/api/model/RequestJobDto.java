@@ -1,6 +1,6 @@
-package dev.reno.model;
+package dev.reno.dtq.api.model;
 
-import dev.reno.type.AlgorithmType;
+import dev.reno.dtq.api.type.AlgorithmType;
 
 public record RequestJobDto(
         AlgorithmType algorithm,

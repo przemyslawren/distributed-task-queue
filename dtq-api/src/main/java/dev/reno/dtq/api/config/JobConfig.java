@@ -1,7 +1,7 @@
-package dev.reno.config;
+package dev.reno.dtq.api.config;
 
-import dev.reno.service.JobService;
-import dev.reno.service.MessageService;
+import dev.reno.dtq.api.service.JobService;
+import dev.reno.dtq.api.service.MessageService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

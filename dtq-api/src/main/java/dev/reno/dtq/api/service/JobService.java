@@ -1,9 +1,9 @@
-package dev.reno.service;
+package dev.reno.dtq.api.service;
 
-import dev.reno.mapper.JobMapper;
-import dev.reno.model.RequestJobDto;
-import dev.reno.model.ResponseJobDto;
-import dev.reno.type.StatusType;
+import dev.reno.dtq.api.mapper.JobMapper;
+import dev.reno.dtq.api.model.RequestJobDto;
+import dev.reno.dtq.api.model.ResponseJobDto;
+import dev.reno.dtq.api.type.StatusType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

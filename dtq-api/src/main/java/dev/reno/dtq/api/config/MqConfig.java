@@ -1,8 +1,8 @@
-package dev.reno.config;
+package dev.reno.dtq.api.config;
 
-import dev.reno.property.KafkaProperties;
-import dev.reno.property.TopicProperties;
-import dev.reno.service.MessageService;
+import dev.reno.dtq.api.property.KafkaProperties;
+import dev.reno.dtq.api.property.TopicProperties;
+import dev.reno.dtq.api.service.MessageService;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

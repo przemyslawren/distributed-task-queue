@@ -1,4 +1,4 @@
-package dev.reno.type;
+package dev.reno.dtq.api.type;
 
 public enum StatusType {
     QUEUED,
