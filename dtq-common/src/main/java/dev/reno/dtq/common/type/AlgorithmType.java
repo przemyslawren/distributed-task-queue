@@ -1,4 +1,4 @@
-package dev.reno.dtq.api.type;
+package dev.reno.dtq.common.type;
 
 public enum AlgorithmType {
     BUBBLE_SORT,

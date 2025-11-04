@@ -1,7 +1,7 @@
-package dev.reno.dtq.api.model;
+package dev.reno.dtq.common.model;
 
-import dev.reno.dtq.api.type.AlgorithmType;
-import dev.reno.dtq.api.type.StatusType;
+import dev.reno.dtq.common.type.AlgorithmType;
+import dev.reno.dtq.common.type.StatusType;
 
 import java.util.UUID;
 
