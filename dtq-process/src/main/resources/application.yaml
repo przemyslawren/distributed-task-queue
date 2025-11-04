@@ -1,0 +1,4 @@
+kafka:
+  bootstrapServers: "127.0.0.1:9092"
+  groupId: "dtq-group"
+  autoOffsetReset: "earliest"
