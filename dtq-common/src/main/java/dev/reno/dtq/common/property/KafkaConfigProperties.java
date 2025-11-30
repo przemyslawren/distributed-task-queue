@@ -1,11 +1,10 @@
-package dev.reno.dtq.process.property;
+package dev.reno.dtq.common.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "kafka")
-public record KafkaProperties(
+public record KafkaConfigProperties(
         String bootstrapServers,
-        String groupId,
         String autoOffsetReset
 ) {
 }
