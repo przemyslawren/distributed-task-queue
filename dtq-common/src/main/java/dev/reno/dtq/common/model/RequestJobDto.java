@@ -4,6 +4,6 @@ import dev.reno.dtq.common.type.AlgorithmType;
 
 public record RequestJobDto(
         AlgorithmType algorithm,
-        Object payload
+        int[] payload
 ) {
 }

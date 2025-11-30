@@ -7,14 +7,14 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 public class MessageService {
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, ResponseJobDto> kafkaTemplate;
 
-    public MessageService(KafkaTemplate<String, String> kafkaTemplate) {
+    public MessageService(KafkaTemplate<String, ResponseJobDto> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
     void sendMessage(ResponseJobDto responseJobDto) {
-        kafkaTemplate.send("job", String.valueOf(responseJobDto));
+        kafkaTemplate.send("job", responseJobDto);
         LOG.info("Message sent: {}", responseJobDto.toString());
     }
 }

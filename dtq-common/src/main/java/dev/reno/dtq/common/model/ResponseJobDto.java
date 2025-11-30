@@ -9,6 +9,6 @@ public record ResponseJobDto(
         UUID id,
         StatusType status,
         AlgorithmType algorithm,
-        Object payload
+        int[] payload
 ) {
 }

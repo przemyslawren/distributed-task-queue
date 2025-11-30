@@ -1,5 +1,6 @@
 package dev.reno.dtq.common.config;
 
+import dev.reno.dtq.common.model.ResponseJobDto;
 import dev.reno.dtq.common.property.KafkaConfigProperties;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -14,6 +15,8 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,20 +26,20 @@ import java.util.Map;
 public class MqConfig {
 
     @Bean
-    public ConsumerFactory<String, String> consumerFactory(KafkaConfigProperties kafkaConfigProperties) {
+    public ConsumerFactory<String, ResponseJobDto> consumerFactory(KafkaConfigProperties kafkaConfigProperties) {
         final Map<String, Object> properties = new HashMap<>();
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaConfigProperties.bootstrapServers());
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, kafkaConfigProperties.autoOffsetReset());
 
         return new DefaultKafkaConsumerFactory<>(properties);
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory(
-            ConsumerFactory<String, String> consumerFactory) {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory =
+    public ConcurrentKafkaListenerContainerFactory<String, ResponseJobDto> kafkaListenerContainerFactory(
+            ConsumerFactory<String, ResponseJobDto> consumerFactory) {
+        ConcurrentKafkaListenerContainerFactory<String, ResponseJobDto> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory);
         factory.setConcurrency(10);
@@ -45,17 +48,17 @@ public class MqConfig {
     }
 
     @Bean
-    public ProducerFactory<String, String> producerFactory(KafkaConfigProperties kafkaConfigProperties) {
+    public ProducerFactory<String, ResponseJobDto> producerFactory(KafkaConfigProperties kafkaConfigProperties) {
         final Map<String, Object> properties = new HashMap<>();
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaConfigProperties.bootstrapServers());
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
         return new DefaultKafkaProducerFactory<>(properties);
     }
 
     @Bean
-    public KafkaTemplate<String, String> kafkaTemplate(ProducerFactory<String, String> producerFactory) {
+    public KafkaTemplate<String, ResponseJobDto> kafkaTemplate(ProducerFactory<String, ResponseJobDto> producerFactory) {
         return new KafkaTemplate<>(producerFactory);
     }
 }
