@@ -41,7 +41,7 @@
         <kafka.version>4.1.0</kafka.version>
         <jackson-core.version>3.0.3</jackson-core.version>
         <jackson-databind.version>2.20.1</jackson-databind.version>
-        <akka.version>2.8.7</akka.version>
+        <pekko.version>1.4.0</pekko.version>
     </properties>
 
     <build>

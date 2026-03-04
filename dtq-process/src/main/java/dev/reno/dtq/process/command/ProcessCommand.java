@@ -1,6 +1,6 @@
 package dev.reno.dtq.process.command;
 
-import akka.actor.typed.ActorRef;
+import org.apache.pekko.actor.typed.ActorRef;
 import dev.reno.dtq.common.model.ResponseJobDto;
 
 public record ProcessCommand(

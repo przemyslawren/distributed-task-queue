@@ -1,6 +1,6 @@
 package dev.reno.dtq.process.listener;
 
-import akka.actor.typed.ActorSystem;
+import org.apache.pekko.actor.typed.ActorSystem;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.reno.dtq.common.model.ResponseJobDto;

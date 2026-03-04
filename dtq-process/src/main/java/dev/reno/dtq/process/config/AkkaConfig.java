@@ -1,6 +1,6 @@
 package dev.reno.dtq.process.config;
 
-import akka.actor.typed.ActorSystem;
+import org.apache.pekko.actor.typed.ActorSystem;
 import dev.reno.dtq.process.behavior.ManagerBehavior;
 import dev.reno.dtq.process.command.Command;
 import org.springframework.context.annotation.Bean;
